@@ -34,7 +34,8 @@ public class SSTRING {
 		
 		
 		String sentence="My name is Tom Hardy";
-		String name= sentence.substring(11);
+		String name= sentence.substring(11,sentence.length());
+		//String name= sentence.substring(11,sentence.length());
 		System.out.println(name);
 		
 
