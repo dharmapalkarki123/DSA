@@ -16,11 +16,13 @@ public class UpdateBit {
 		int bitMask=1<<poss;
 		
 		if(oper==1) {
-			
+			//set
 			int newNumber=bitMask|n;
 			System.out.println(newNumber);
 			
 		} else {
+			
+			//clear
 			
 			int notBitMask=~(bitMask);
 			int newNumber1=notBitMask&n;
