@@ -1,5 +1,7 @@
 package Recursion;
 
+
+
 public class TowerOfHanoi {
 
     // Recursive function to solve Tower of Hanoi
@@ -20,7 +22,8 @@ public class TowerOfHanoi {
     }
 
     public static void main(String[] args) {
-        int numberOfDisks = 2; // You can change this to any number
-        solveHanoi(numberOfDisks, "A", "B", "C"); // A = source, B = helper, C = destination
+        int numberOfDisks = 10;
+        solveHanoi(numberOfDisks, "S", "H", "D");
     }
 }
+
