@@ -1,12 +1,23 @@
 package Recursion;
 
 public class ReverseString {
-    public static String reverse(String str) {
-        if (str.isEmpty()) return str;
-        return reverse(str.substring(1)) + str.charAt(0);
+    public static void  reverse(int index, String str) {
+    	
+    	if(index==0) {
+    		System.out.println(str.charAt(index));
+    		return;
+    		
+    	}
+    	
+    	
+    	System.out.print(str.charAt(index));
+    	reverse(index-1, str);
+    	
+    	
+       
     }
-
     public static void main(String[] args) {
-        System.out.println("Reversed: " + reverse("hello")); // olleh
+        String str="Microsft";
+        reverse(str.length()-1,str);
     }
 }
