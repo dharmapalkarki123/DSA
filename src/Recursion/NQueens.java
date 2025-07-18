@@ -7,7 +7,7 @@ class NQueens {
 
     // Checking if placing a Queen at board[row][col] is safe
     public boolean isSafe(int row, int col, char[][] board) {
-        // Checking horizontally across the row
+        // Checking horizontally across the row 
         for (int j = 0; j < board.length; j++) {
             if (board[row][j] == 'Q') return false;
         }
@@ -113,10 +113,10 @@ class NQueens {
         int n = 4;
 
         // Getting all possible solutions
-        List<List<String>> solutions = nQueens.solveNQueens(n);
+        List<List<String>> solutions = nQueens.solveNQueens (n);
 
         // Printing each solution board
-        int count = 1;
+        int count = 0;
         for (List<String> board : solutions) {
             System.out.println("Solution " + count++);
             for (String row : board) {
