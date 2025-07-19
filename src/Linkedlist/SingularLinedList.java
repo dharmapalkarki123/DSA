@@ -4,6 +4,14 @@ public class SingularLinedList {
 	
 	Node head;
 	
+	
+	private int size;
+	
+	public SingularLinedList() {
+		this.size=0;
+	}
+	
+	
 	class Node {
 		
 		String data;
@@ -13,6 +21,7 @@ public class SingularLinedList {
 		Node(String data){
 			this.data=data;
 			this.next=null;
+			size++;
 		}
 		
 		
@@ -86,6 +95,65 @@ public class SingularLinedList {
 	}
 	
 	
+	public void deleteFirst() {
+		
+		if(head==null) {
+			
+			System.out.println("List is empty");
+			return;
+			
+		}
+		size--;
+		
+		
+		head = head.next;  // Assigning head to next, which will delete the previous head and assign the next node as the new head
+		
+
+		
+		
+	}
+	
+	
+	public void deleteLast() {
+		
+		if(head==null) {
+			System.out.println("List is empty");
+			
+			return;
+		}
+		
+		size--;
+		
+		if(head.next==null) {
+			head=null;
+			return;
+		}
+		
+		Node secondLastNode=head;
+		Node lastNode=head.next;
+		
+		while(lastNode.next!=null) {
+			
+			lastNode=lastNode.next;
+			secondLastNode=secondLastNode.next;
+			
+		}
+		
+		secondLastNode.next=null;
+		
+		
+	}
+	
+	public int getSize() {
+		
+		return size;
+		
+	}
+	
+	
+	
+	
+	
 	
 	
 	  public static void main(String[] args) {
@@ -97,7 +165,17 @@ public class SingularLinedList {
 		  list.printList();
 		  
 		  list.addLast("c");
+		  list.addLast("e");
+		  list.addLast("f");
 		  list.printList();
+		  
+		  list.deleteFirst();
+		  list.printList();
+		  
+		  list.deleteLast();
+		  list.printList();
+		  
+		  System.out.println(list.getSize());
 		  
 		  
 	  }
