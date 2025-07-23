@@ -177,6 +177,55 @@ public class SingularLinedList {
 		
 		
 	}
+	
+	
+	
+	public Node removeNthNode(Node head,int n) {
+		
+		if(head.next==null) {
+			return null;
+		}
+		
+		int size=0;
+		Node currNode=head;
+		while(currNode!=null) {
+			currNode=currNode.next;
+			size++;
+			
+			
+		}
+		
+		if(n==size) {
+			return head.next;
+		}
+		
+		
+		
+		int indexSearch=size-n;
+		
+		Node prevNode=head;
+		
+		int i=1;
+		
+		while(i<indexSearch) {
+			
+			prevNode=prevNode.next;
+			
+			i++;
+			
+		}
+		
+		prevNode.next=prevNode.next.next;
+		return head;
+		
+		
+		
+		
+		
+		
+		
+		
+	}
 
 	public static void main(String[] args) {
 
@@ -200,8 +249,15 @@ public class SingularLinedList {
 //		list.reverseIterate();
 //		list.printList();
 		
+		
+		
+		
 		list.head=list.reverseRecursive(list.head);
 		list.printList();
+		
+		list.head=list.removeNthNode(list.head,1);
+		list.printList();
+		
 
 		System.out.println(list.getSize());
 
