@@ -139,7 +139,7 @@ public class SingularLinedList {
 		return head;
 	}
 
-	// ✅ New Method to Check if the Linked List is a Palindrome
+	// Check if the Linked List is a Palindrome
 	public boolean isPalindrome() {
 		if (head == null || head.next == null) {
 			return true; // Empty or single node is always palindrome
@@ -180,6 +180,37 @@ public class SingularLinedList {
 		return true;
 	}
 
+	//  Check if linked list has any loop (cycle)
+	public boolean isCircular() {
+		if (head == null) return false;
+
+		Node slow = head;
+		Node fast = head;
+
+		while (fast != null && fast.next != null) {
+			slow = slow.next;
+			fast = fast.next.next;
+
+			if (slow == fast) {
+				return true; // Loop detected
+			}
+		}
+
+		return false;
+	}
+
+	//Check if last node points directly to head (perfect circular list)
+	public boolean isPerfectCircular() {
+		if (head == null) return false;
+
+		Node temp = head;
+		while (temp.next != null && temp.next != head) {
+			temp = temp.next;
+		}
+
+		return temp.next == head;
+	}
+
 	public static void main(String[] args) {
 		SingularLinedList list = new SingularLinedList();
 
@@ -198,9 +229,6 @@ public class SingularLinedList {
 		list.deleteLast();
 		list.printList();
 
-		// list.reverseIterate();
-		// list.printList();
-
 		list.head = list.reverseRecursive(list.head);
 		list.printList();
 
@@ -208,6 +236,14 @@ public class SingularLinedList {
 		list.printList();
 
 		System.out.println("Is Palindrome: " + list.isPalindrome());
+
+		// Test circular check
+		System.out.println("Is Circular (any loop): " + list.isCircular());
+		System.out.println("Is Perfect Circular (last node → head): " + list.isPerfectCircular());
+
+		//  Manually make circular
+		// list.head.next.next.next = list.head;  // Uncomment to test loop
+		// System.out.println("Is Circular after loop: " + list.isCircular());
 
 		System.out.println("Size: " + list.getSize());
 	}
