@@ -22,8 +22,43 @@ public class StringBuilderExample {
         System.out.println("After delete: " + sb);
 
         // Reversing the string
-        sb.reverse();
-        System.out.println("After reverse: " + sb);
+//        sb.reverse();
+//        System.out.println("After reverse: " + sb);
+        
+        
+        
+        for(int i=0;i<sb.length()/2;i++) {
+        	
+        	int  front=i;
+        	int back=sb.length()-1-i;
+        	
+        	char frontChar=sb.charAt(front);
+        	Character backChar =sb.charAt(back);
+        	
+        	sb.setCharAt(front, backChar);
+        	sb.setCharAt(back, frontChar);
+        	
+        }
+        
+        System.out.println(sb);
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
 }
 
