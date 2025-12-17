@@ -20,16 +20,24 @@ public class SelectionSort {
 		int array[]= {7,8,3,1,2};
 		
 		
-		for(int i=0;i<array.length;i++) {
+		for(int i=0;i<array.length-1;i++) {
+			int smallest=i;
 			
-			for(int j=0;j<array.length-i-1;i--) {
+			for(int j=i+1;j<array.length;j++) {
 				
-				int smallest=array[j];
-				if (smallest<array[j+1]) {
+			
+				if (array[smallest]>array[j]) {
+					
+					smallest=j;
+					
 					
 				}
 				
 			}
+			
+			int temp=array[smallest];
+			array[smallest]=array[i];
+			array[i]=temp;
 			
 			
 		}
