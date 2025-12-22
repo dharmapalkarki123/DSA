@@ -47,7 +47,7 @@ public class SumOfNaturalNum {
 		
 		if(i==n) {
 			
-//			sum += i;
+			sum += i;
 			System.out.println(sum);
 			
 			
@@ -58,6 +58,7 @@ public class SumOfNaturalNum {
 		
 		sum += i;
 		printSum(n, i+1, sum);
+		System.out.println(i);
 		
 	}
 	

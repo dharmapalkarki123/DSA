@@ -2,23 +2,33 @@ package Recursion;
 
 public class Factorial {
 	
-	public static int CalFactorial(int n) {
-		if(n==1||n==0) {
+	
+	public static int CalFact(int n) {
+		
+		if(n==0 ||n==1) {
+			
+		
 			return 1;
 		}
 		
 		
 		
-		return n*CalFactorial(n-1);
+	int fac=CalFact(n-1);
+	int fact1=n*fac;
+	return fact1;
+	
+		
+		
+		
 		
 	}
 
 	public static void main(String[] args) {
+		int n=5;
 		
-		int n=6;
-		int fact= CalFactorial(n);
-		
-		System.out.println(fact);
+	int fact2=	CalFact(n);
+	System.out.println(fact2);
+	
 		
 		
 	
