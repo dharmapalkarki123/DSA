@@ -4,17 +4,18 @@ public class PoowerCal {
 	
 	public static int powerCal(int x, int n) {
 		
-if(n==0) {
-	return 1;
-}
-	if (x==0) {
+
+		if(x==0) {
+			return 0;
+		}
+		if(n==0) {
+			return 1;
+		}
+
+		int power1= powerCal(x,n-1);
 		
-		return 0;
-		
-	}	
-		int power1=powerCal(x,n-1);
-	int power2=x*power1;
-	return power2;
+		int power2=x*power1;
+		 return power2;
 		
 		
 		
