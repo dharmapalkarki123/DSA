@@ -11,7 +11,10 @@ public class Subsequence {
     	
     	char currChar= str.charAt(idx);
     	
+    	//to be 
     	SubsequenceString(str, idx+1, newString+currChar);
+    	
+    	//or not be
     	
     	SubsequenceString(str, idx+1, newString);
     	
