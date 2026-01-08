@@ -32,8 +32,7 @@ public class CountPath1 {
 
 	public static void main(String[] args) {
 		
-		int n=3;
-		int m=3;
+		int n=3,m=3;
 		int totalPath=countPath(0, 0, n, m);
 		
 		System.out.println(totalPath);
