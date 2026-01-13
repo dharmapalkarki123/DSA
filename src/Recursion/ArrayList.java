@@ -29,7 +29,7 @@ public class ArrayList {
 
 
 	public static void main(String[] args) {
-		int[] array = {1, 2, 3};
+		int[] array = {6, 7, 9};
 		subtractAndPrint(array);
 		
 		
