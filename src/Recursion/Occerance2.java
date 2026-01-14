@@ -37,11 +37,11 @@ public class Occerance2 {
 	}
 
 	public static void main(String[] args) {
-		String str="abaacda";
+		String str="abaacdab";
 		
 			
 
-		occerance(str, 0, 'a');
+		occerance(str, 0, 'b');
 	}
 
 }

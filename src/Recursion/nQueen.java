@@ -98,9 +98,13 @@ public class nQueen {
 
         List<List<String>> solution = NQueen.solveNQueens(n);
 
+        int count=0;
         for (List<String> board : solution) {
+        	
+        	System.out.println("Solution" + count++);
+        	
             for (String row : board) {
-                System.out.println(row);
+                System.out.println( row);
             }
             System.out.println();
         }
