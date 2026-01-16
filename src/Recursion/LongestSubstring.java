@@ -1,38 +1,29 @@
 package Recursion;
 
+import java.util.HashSet;
+
+
 public class LongestSubstring {
-	
-	public static void longestSub(String str, int idx, String newSubString) {
-		
-		if(idx==str.length()) {
-			
-			System.out.println(newSubString);
-			return;
-			
-		}
-		
-		char currenEle=str.charAt(idx);
-		
-		longestSub(str, idx+1, newSubString+currenEle);
-		
-		longestSub(str, idx+1, newSubString);
-		
-		
-		
-		
-	}
-	
 
-	public static void main(String[] args) {
-		
-		String str="abcabcbb";
-		
-		longestSub(str, 0, " ");
-		
-		
-		
-		
+    public static int longestSubstring(String s) {
+        int maxLength = 0;
 
-	}
+        for (int i = 0; i < s.length(); i++) {
+            HashSet<Character> set = new HashSet<>();
 
+            for (int j = i; j < s.length(); j++) {
+                if (set.contains(s.charAt(j))) {
+                    break; // duplicate found
+                }
+                set.add(s.charAt(j));
+                maxLength = Math.max(maxLength, j - i + 1);
+            }
+        }
+        return maxLength;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(longestSubstring("pwwkew")); // 3
+    }
 }
+
