@@ -38,7 +38,7 @@ public class nQueen {
 	    		
 	    		for(int j=0;j<n;j++) {
 	    			
-	    			System.out.println(board[i][j]);
+	    			System.out.print(board[i][j]);
 	    		
 	    			
 	    		}
@@ -46,6 +46,8 @@ public class nQueen {
 	    		System.out.println();
 			
 		}
+			
+			System.out.println();
 			return;
 		}
 		for(int j=0;j<n;j++) {
@@ -66,6 +68,8 @@ public class nQueen {
 
 	private static boolean isSafe(char[][] board, int row, int col) {
 		
+		
+		
 		//for row
 		for(int j=0;j<board.length;j++) {
 			
@@ -75,6 +79,7 @@ public class nQueen {
 			
 		}
 		
+		//for column
 		
 		for(int i=0;i<board.length;i++) {
 			
@@ -83,6 +88,90 @@ public class nQueen {
 			}
 			
 		}
+		
+		//upper right diagonal
+		
+		int r=row;
+		
+		for(int c=col; r>=0 && c<board.length; c++, r--) {
+			
+			if(board[r][c]=='Q') {
+				
+				
+				return false;
+				
+				
+				
+			}
+			
+			
+		}
+		
+		//uper left Diagonal
+		
+		
+ r=row;
+		
+		for(int c=col; r>=0 && c>=0; c--, r--) {
+			
+			if(board[r][c]=='Q') {
+				
+				
+				return false;
+				
+				
+				
+			}
+			
+			
+		}
+	
+		
+		//lower left diagonal
+		
+		
+		 r=row;
+			
+			for(int c=col; r<board.length && c>=0; c--, r++) {
+				
+				if(board[r][c]=='Q') {
+					
+					
+					return false;
+					
+					
+					
+				}
+				
+				
+			}
+			
+			
+			
+			//lower right diagonal
+			
+			
+			 r=row;
+				
+				for(int c=col; r<board.length && c<board.length; c++, r++) {
+					
+					if(board[r][c]=='Q') {
+						
+						
+						return false;
+						
+						
+						
+					}
+					
+					
+				}
+		
+		
+		
+		
+		
+		
 		
 		
 		
