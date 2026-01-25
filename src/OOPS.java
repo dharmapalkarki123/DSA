@@ -112,7 +112,7 @@ public class OOPS {
 	  Student s2=new Student("aman", 24);
 	  s2.printInfo();
 	  
-	  
+	  //copying constructor usally s2 value is assign into s3 object
 	  Student s3=new Student(s2);
 	  s3.printInfo();
 	  
