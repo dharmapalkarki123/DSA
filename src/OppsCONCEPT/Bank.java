@@ -1,5 +1,5 @@
 package OppsCONCEPT;
-
+//encapsulation 
 class account{
 	
 	public String name;
