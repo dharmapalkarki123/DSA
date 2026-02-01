@@ -127,6 +127,34 @@ public class LL {
 	public int getSize() {
 		return size;
 	}
+	
+	
+	public void iterativeReverse() {
+		
+		if(head==null ||head.next==null) {
+			return;
+		}
+		
+		
+		Node prevNode=head;
+		Node currNode=head.next;
+		while(currNode!=null) {
+			
+			Node nextNode=currNode.next;
+			currNode.next=prevNode;
+			
+			//update
+			prevNode=currNode;
+			currNode=nextNode;
+			
+			
+		}
+		head.next=null;
+		head=prevNode;
+		
+		
+		
+	}
 
 	public static void main(String[] args) {
 
@@ -137,13 +165,17 @@ public class LL {
 
 		list.addLast("a");
 		list.addLast("ball");
-		 list.deleteFirst();
-		 list.deleteLast();
+//		 list.deleteFirst();
+//		 list.deleteLast();
 		list.printList();
 		
 		System.out.println();
 
 		System.out.println(list.getSize());
+		
+		list.iterativeReverse();
+		list.printList();
+		
 
 	}
 
