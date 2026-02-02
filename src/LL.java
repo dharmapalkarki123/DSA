@@ -155,6 +155,36 @@ public class LL {
 		
 		
 	}
+	
+	
+	
+	
+	public Node recursiveReverse(Node head) {
+		
+		if(head==null||head.next==null) {
+			
+			return head;
+			
+		}
+		
+		Node newNode=recursiveReverse(head.next);
+		
+		head.next.next=head;
+		head.next=null;
+		
+		return newNode;
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
 
 	public static void main(String[] args) {
 
@@ -173,7 +203,10 @@ public class LL {
 
 		System.out.println(list.getSize());
 		
-		list.iterativeReverse();
+		//list.iterativeReverse();
+		
+		list.head= list.recursiveReverse(list.head);
+		
 		list.printList();
 		
 
