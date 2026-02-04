@@ -162,21 +162,94 @@ public class LL {
 		prev.next = prev.next.next;
 		return head;
 	}
+	
+	public Node findMiddle(Node head) {
+		Node hareNode=head;
+		Node turtleNode=head;
+		
+		while(hareNode.next!=null && hareNode.next.next!=null) {
+			
+			hareNode=hareNode.next.next;
+			turtleNode=turtleNode.next;
+			
+			
+		}
+		
+		return turtleNode;
+		
+		
+	}
+	
+	
+	public Node Reverse(Node head) {
+		
+		Node prevNode=null;
+		Node currNode=head;
+		while(currNode!=null) {
+			
+			Node nextNode =currNode.next;
+			
+			currNode.next=prevNode;
+			prevNode=currNode;
+			currNode=nextNode;
+			
+		}
+		return prevNode;
+		
+	}
+	
+	public boolean isPallindrome(Node head) {
+		
+		if(head==null||head.next==null) {
+			return true;
+			
+		}
+		
+		Node middleNode=findMiddle(head);
+		Node secondHalfStartNode=Reverse(middleNode.next);
+		
+		Node firstHalfNode=head;
+		while(secondHalfStartNode!=null) {
+			
+			if(firstHalfNode.data!=secondHalfStartNode.data) {
+				
+				return false;
+				
+				
+			}
+			firstHalfNode=firstHalfNode.next;
+			secondHalfStartNode=secondHalfStartNode.next;
+			
+			
+		
+			
+			
+			
+		}
+		
+		return true;
+		
+		
+		
+		
+	}
+	
 
 	public static void main(String[] args) {
 		LL list = new LL();
 
-		list.addFirst("is");
-		list.addFirst("this");
-		list.addLast("a");
-		list.addLast("ball");
+		list.addFirst("A");
+		list.addFirst("M");
+		list.addLast("D");
+		list.addLast("M");
 
 		list.printList();
 		System.out.println("Size: " + list.getSize());
 
 		list.head = list.recursiveReverse(list.head);
-		list.head = list.removeNthNode(list.head, 2);
+//		list.head = list.removeNthNode(list.head, 2);
 
 		list.printList();
+		System.out.print(list.isPallindrome(list.head));
 	}
 }
