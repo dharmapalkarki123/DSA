@@ -17,6 +17,20 @@ public class PushAtButtom {
 		
 		
 	}
+	
+	
+	public static void reverse(Stack<Integer> s) {
+		
+		if(s.isEmpty()) {
+			return;
+			
+		}
+		
+		int top=s.pop();
+		reverse(s);
+		pushAtButtom1(top, s);
+		
+	}
 
 	public static void main(String[] args) {
 	   Stack<Integer> s=new Stack<>();
@@ -24,8 +38,9 @@ public class PushAtButtom {
 	   s.push(1);
 	   s.push(2);
 	   s.push(3);
+	   reverse(s);
 	   
-	   pushAtButtom1(4,s);
+	  // pushAtButtom1(4,s);
 	   
 	   while (!s.isEmpty()) {
 
