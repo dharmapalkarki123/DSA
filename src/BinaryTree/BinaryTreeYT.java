@@ -1,5 +1,8 @@
 package BinaryTree;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BinaryTreeYT {
 
 	static class Node {
@@ -77,6 +80,60 @@ public class BinaryTreeYT {
 		System.out.print(rootNode.data + " ");
 
 	}
+	
+	public static void levelOrdwe(Node rootNode) {
+		
+		if(rootNode==null) {
+			return;
+		}
+		
+		Queue<Node> q =new LinkedList<>();
+		
+		q.add(rootNode);
+		q.add(null);
+		
+		while(!q.isEmpty()) {
+			
+			Node currNode=q.remove();
+			
+			if(currNode==null) {
+				
+				System.out.println();
+				if(q.isEmpty()) {
+					
+					break;
+					
+				}else {
+					q.add(null);
+				}
+				
+			}else {
+				
+				System.out.println(currNode.data+" ");
+				if(currNode.leftNode !=null) {
+					
+					q.add(currNode.leftNode);
+					
+					
+				}
+				
+				if(currNode.rightNode !=null) {
+					
+					q.add(currNode.rightNode);
+					
+				}
+				
+			}
+			
+			
+			
+		}
+		
+		
+		
+		
+		
+	}
 
 	public static void main(String[] args) {
 		int nodes[] = { 1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1 };
@@ -89,7 +146,9 @@ public class BinaryTreeYT {
 
 		// inorderTraversal(rootNode);
 
-		postTraversal(rootNode);
+		//postTraversal(rootNode);
 
+		levelOrdwe(rootNode);
+		
 	}
 }
