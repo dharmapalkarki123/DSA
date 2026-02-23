@@ -134,6 +134,40 @@ public class BinaryTreeYT {
 		
 		
 	}
+	
+	
+	
+	public static int countOfNode(Node rooNode) {
+		
+		if(rooNode==null) {
+			return 0;
+		}
+		
+		int leftCount=countOfNode(rooNode.leftNode);
+		int rightCount=countOfNode(rooNode.rightNode);
+		return leftCount+rightCount+1;
+		
+		
+		
+	}
+	
+public static int SumOfNode(Node rooNode) {
+		
+		if(rooNode==null) {
+			return 0;
+		}
+		
+		int leftCount=SumOfNode(rooNode.leftNode);
+		int rightCount=SumOfNode(rooNode.rightNode);
+		return leftCount+rightCount+rooNode.data;
+		
+		
+		
+	}
+	
+	
+	
+	
 
 	public static void main(String[] args) {
 		int nodes[] = { 1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1 };
@@ -148,7 +182,11 @@ public class BinaryTreeYT {
 
 		//postTraversal(rootNode);
 
-		levelOrdwe(rootNode);
+		//levelOrdwe(rootNode);
+		
+		//System.out.println(countOfNode(rootNode));
+		System.out.println(SumOfNode(rootNode));
+		
 		
 	}
 }
