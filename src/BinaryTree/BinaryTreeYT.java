@@ -3,6 +3,8 @@ package BinaryTree;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import Recursion.removeDuplicate;
+
 public class BinaryTreeYT {
 
 	static class Node {
@@ -165,6 +167,52 @@ public static int SumOfNode(Node rooNode) {
 		
 	}
 	
+
+public static int heightOfTree(Node rooNode) {
+	
+	if(rooNode==null) {
+		return 0;
+	}
+	
+	int leftheight=heightOfTree(rooNode.leftNode);
+	int rightheight=heightOfTree(rooNode.rightNode);
+	
+	if(leftheight>rightheight) {
+		
+		return leftheight+1;
+		
+	}else {
+		
+		return rightheight+1;
+		
+	}
+	
+	
+	
+	
+	
+}
+	
+public static int diameterOfTree(Node rooNode) {
+	
+	if(rooNode==null) {
+		return 0;
+	}
+	
+	int diam1=diameterOfTree(rooNode.leftNode);
+	int diam2=diameterOfTree(rooNode.rightNode);
+	
+	int diam3=heightOfTree(rooNode.leftNode)+heightOfTree(rooNode.rightNode)+1;
+	
+
+		
+		return Math.max(diam3, Math.max(diam1, diam2));
+		
+	}
+	
+	
+	
+	
 	
 	
 	
@@ -185,7 +233,9 @@ public static int SumOfNode(Node rooNode) {
 		//levelOrdwe(rootNode);
 		
 		//System.out.println(countOfNode(rootNode));
-		System.out.println(SumOfNode(rootNode));
+		//System.out.println(SumOfNode(rootNode));
+		//System.out.println(heightOfTree(rootNode));
+		System.out.println(diameterOfTree(rootNode));
 		
 		
 	}
