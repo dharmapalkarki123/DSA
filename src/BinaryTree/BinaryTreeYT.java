@@ -139,43 +139,43 @@ public class BinaryTreeYT {
 	
 	
 	
-	public static int countOfNode(Node rooNode) {
+	public static int countOfNode(Node rootNode) {
 		
-		if(rooNode==null) {
+		if(rootNode==null) {
 			return 0;
 		}
 		
-		int leftCount=countOfNode(rooNode.leftNode);
-		int rightCount=countOfNode(rooNode.rightNode);
+		int leftCount=countOfNode(rootNode.leftNode);
+		int rightCount=countOfNode(rootNode.rightNode);
 		return leftCount+rightCount+1;
 		
 		
 		
 	}
 	
-public static int SumOfNode(Node rooNode) {
+public static int SumOfNode(Node rootNode) {
 		
-		if(rooNode==null) {
+		if(rootNode==null) {
 			return 0;
 		}
 		
-		int leftCount=SumOfNode(rooNode.leftNode);
-		int rightCount=SumOfNode(rooNode.rightNode);
-		return leftCount+rightCount+rooNode.data;
+		int leftCount=SumOfNode(rootNode.leftNode);
+		int rightCount=SumOfNode(rootNode.rightNode);
+		return leftCount+rightCount+rootNode.data;
 		
 		
 		
 	}
 	
 
-public static int heightOfTree(Node rooNode) {
+public static int heightOfTree(Node rootNode) {
 	
-	if(rooNode==null) {
+	if(rootNode==null) {
 		return 0;
 	}
 	
-	int leftheight=heightOfTree(rooNode.leftNode);
-	int rightheight=heightOfTree(rooNode.rightNode);
+	int leftheight=heightOfTree(rootNode.leftNode);
+	int rightheight=heightOfTree(rootNode.rightNode);
 	
 	if(leftheight>rightheight) {
 		
@@ -193,16 +193,16 @@ public static int heightOfTree(Node rooNode) {
 	
 }
 	
-public static int diameterOfTree(Node rooNode) {
+public static int diameterOfTree(Node rootNode) {
 	
-	if(rooNode==null) {
+	if(rootNode==null) {
 		return 0;
 	}
 	
-	int diam1=diameterOfTree(rooNode.leftNode);
-	int diam2=diameterOfTree(rooNode.rightNode);
+	int diam1=diameterOfTree(rootNode.leftNode);
+	int diam2=diameterOfTree(rootNode.rightNode);
 	
-	int diam3=heightOfTree(rooNode.leftNode)+heightOfTree(rooNode.rightNode)+1;
+	int diam3=heightOfTree(rootNode.leftNode)+heightOfTree(rootNode.rightNode)+1;
 	
 
 		
@@ -213,7 +213,35 @@ public static int diameterOfTree(Node rooNode) {
 	
 	
 	
-	
+static class TreeInfo {
+    int height;
+    int diameter;
+
+    TreeInfo(int height, int diameter) {
+        this.height = height;
+        this.diameter = diameter;
+    }
+}
+
+public static TreeInfo diameter(Node rootNode) {
+
+    if (rootNode == null) {
+        return new TreeInfo(0, 0);
+    }
+
+    TreeInfo left = diameter(rootNode.leftNode);
+    TreeInfo right = diameter(rootNode.rightNode);
+
+    int myHeight = Math.max(left.height, right.height) + 1;
+
+    int diam1 = left.diameter;
+    int diam2 = right.diameter;
+    int diam3 = left.height + right.height + 1;
+
+    int myDiameter = Math.max(diam3, Math.max(diam1, diam2));
+
+    return new TreeInfo(myHeight, myDiameter);
+}
 	
 	
 
@@ -235,7 +263,10 @@ public static int diameterOfTree(Node rooNode) {
 		//System.out.println(countOfNode(rootNode));
 		//System.out.println(SumOfNode(rootNode));
 		//System.out.println(heightOfTree(rootNode));
-		System.out.println(diameterOfTree(rootNode));
+		//System.out.println(diameterOfTree(rootNode));
+		
+		TreeInfo result = diameter(rootNode);
+		System.out.println(result.diameter);
 		
 		
 	}
