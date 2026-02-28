@@ -3,6 +3,8 @@ package BinaryTree;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import javax.swing.tree.TreeNode;
+
 import Recursion.removeDuplicate;
 
 public class BinaryTreeYT {
@@ -243,6 +245,43 @@ public static TreeInfo diameter(Node rootNode) {
     return new TreeInfo(myHeight, myDiameter);
 }
 	
+
+public static boolean isIdentical(Node root, Node subRoot) {
+
+    if (root == null && subRoot == null) {
+        return true;
+    }
+
+    if (root == null || subRoot == null) {
+        return false;
+    }
+
+    if (root.data == subRoot.data) {
+        return isIdentical(root.leftNode, subRoot.leftNode)
+                && isIdentical(root.rightNode, subRoot.rightNode);
+    }
+
+    return false;
+}
+
+public static boolean isSubtree(Node root, Node subRoot) {
+
+    if (subRoot == null) {
+        return true;
+    }
+
+    if (root == null) {
+        return false;
+    }
+
+    if (isIdentical(root, subRoot)) {
+        return true;
+    }
+
+    return isSubtree(root.leftNode, subRoot)
+            || isSubtree(root.rightNode, subRoot);
+}
+
 	
 
 	public static void main(String[] args) {
@@ -265,8 +304,16 @@ public static TreeInfo diameter(Node rootNode) {
 		//System.out.println(heightOfTree(rootNode));
 		//System.out.println(diameterOfTree(rootNode));
 		
-		TreeInfo result = diameter(rootNode);
-		System.out.println(result.diameter);
+//		TreeInfo result = diameter(rootNode);
+//		System.out.println(result.diameter);
+		
+		// Create subtree
+        Node subRoot = new Node(2);
+        subRoot.leftNode = new Node(4);
+        subRoot.rightNode = new Node(5);
+
+        System.out.println("Diameter: " + diameter(rootNode).diameter);
+        System.out.println("Is Subtree: " + isSubtree(rootNode, subRoot));
 		
 		
 	}
