@@ -74,6 +74,74 @@ public class BST {
 		}
 
 	}
+	
+	
+	public static Node deleteNode(Node rootNode, int val) {
+		
+		
+		if(rootNode.data>val) {
+			
+			rootNode.leftNode=deleteNode(rootNode.leftNode, val);
+			
+		}else if(rootNode.data<val) {
+			
+			
+			rootNode.rigthNode=deleteNode(rootNode.rigthNode, val);
+			
+		}else {
+			
+			//case 1
+			if(rootNode.leftNode==null && rootNode.rigthNode==null) {
+				
+				return null;
+				
+				
+			}
+			
+			//case2
+			if(rootNode.leftNode==null) {
+				
+				
+				return rootNode.rigthNode;
+			}else if(rootNode.rigthNode==null){
+				
+				return rootNode.leftNode;
+			}
+			
+			
+			//case3
+			
+			Node IS =inorderSucessor(rootNode.rigthNode);
+			rootNode.data=IS.data;
+			 rootNode.rigthNode= deleteNode(rootNode.rigthNode, IS.data);
+			
+			
+		}
+		
+		return rootNode;
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	public static Node inorderSucessor(Node rootNode) {
+		
+		while(rootNode.leftNode!=null) {
+			
+			rootNode=rootNode.leftNode;
+			
+		}
+		
+		
+		return rootNode;
+		
+	}
+	
 
 	public static void main(String[] args) {
 
@@ -95,6 +163,11 @@ public class BST {
 		} else {
 			System.out.println("Not found");
 		}
+		
+		
+		
+		deleteNode(rootNode, 4);
+		inorder(rootNode);
 
 	}
 
