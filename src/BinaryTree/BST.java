@@ -142,6 +142,31 @@ public class BST {
 		
 	}
 	
+	
+	public static  void printInRange(Node rootNode, int x,int y) {
+		
+		if(rootNode==null) {
+			return;
+		}
+		
+		if(rootNode.data>=x &&rootNode.data<=y) {
+			
+			printInRange(rootNode.leftNode, x, y);
+			System.out.print(rootNode.data+" ");
+			printInRange(rootNode.rigthNode, x, y);
+		}else if(rootNode.data>=y) {
+			
+			printInRange(rootNode.leftNode, x, y);
+			
+		}else {
+			printInRange(rootNode.rigthNode, x, y);
+			
+		}
+
+		
+		
+	}
+	
 
 	public static void main(String[] args) {
 
@@ -166,8 +191,12 @@ public class BST {
 		
 		
 		
-		deleteNode(rootNode, 4);
-		inorder(rootNode);
+//		deleteNode(rootNode, 4);
+//		inorder(rootNode);
+		
+		
+		printInRange(rootNode, 1, 4);
+		
 
 	}
 
