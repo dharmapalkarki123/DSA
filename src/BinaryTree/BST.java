@@ -1,5 +1,7 @@
 package BinaryTree;
 
+import java.util.ArrayList;
+
 import javax.naming.directory.SearchControls;
 
 public class BST {
@@ -167,10 +169,51 @@ public class BST {
 		
 	}
 	
+	
+	
+	public static void printPath(ArrayList<Integer> path) {
+		
+		for(int i=0;i<path.size();i++) {
+			
+			
+			System.out.print(path.get(i)+" ");
+		}
+		
+		System.out.println();
+		
+	}
+	
+	public static void printRoot2Leaf(Node rootNode,ArrayList<Integer> path) {
+		
+		if(rootNode==null) {
+			return;
+		}
+		
+		path.add(rootNode.data);
+		
+		
+		if(rootNode.leftNode==null && rootNode.rigthNode==null) {
+			
+			
+			printPath(path);
+			
+		}else {
+			
+			printRoot2Leaf(rootNode.leftNode, path);
+			printRoot2Leaf(rootNode.rigthNode, path);
+			
+		}
+		
+		path.remove(path.size()-1);
+		
+		
+		
+	}
+	
 
 	public static void main(String[] args) {
 
-		int[] values = { 5, 1, 3, 4, 2, 7 };
+		int[] values = { 8,5,3,1,4,6,10,11,14 };
 		Node rootNode = null;
 
 		for (int i = 0; i < values.length; i++) {
@@ -196,6 +239,8 @@ public class BST {
 		
 		
 		printInRange(rootNode, 1, 4);
+		
+		printRoot2Leaf(rootNode, new ArrayList<Integer>());
 		
 
 	}
