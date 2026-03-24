@@ -31,30 +31,69 @@ public class Trie {
   	
 	public static void insert(String word) {
 		
+		Node curr=rootNode;
 		
 		for(int i=0;i<word.length();i++) {
 			
 			int idx=word.charAt(i)-'a';
 			
-			if(rootNode.children[idx]==null) {
+			if(curr.children[idx]==null) {
 				
 				//add new node
-				rootNode.children[idx]=new Node();
+				curr.children[idx]=new Node();
 				
 			}
 			
 			if(i==word.length()-1) {
 				
-				rootNode.children[idx].endOfWord=true;
+				curr.children[idx].endOfWord=true;
 				
 			}
 			
-		rootNode=	rootNode.children[idx];
+		curr=	curr.children[idx];
 			
 			
 			
 		}
 		
+		
+		
+	}
+	
+	public static boolean search(String key) {
+		
+	Node curr=rootNode;
+		
+		for(int i=0;i<key.length();i++) {
+			
+			int idx=key.charAt(i)-'a';
+			Node node=curr.children[idx];
+			
+			if(node==null) {
+				
+				return false;
+				
+			}
+			
+			
+			if(i==key.length()-1 && node.endOfWord==false) {
+				
+				return false;
+				
+				
+			}
+			
+			
+			curr=curr.children[idx];
+			
+			
+			
+			
+			
+			
+		}
+		
+		return true;
 		
 		
 	}
@@ -75,6 +114,11 @@ public class Trie {
     	
     	insert(words[i]);
     }
+    
+    System.out.println(search("the"));
+    System.out.println(search("there"));
+    System.out.println(search("thoe"));
+    
     	
     }
 }
