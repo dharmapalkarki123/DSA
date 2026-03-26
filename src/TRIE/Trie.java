@@ -1,6 +1,6 @@
 package TRIE;
 
-
+import Recursion.removeDuplicate;
 
 public class Trie {
 
@@ -125,6 +125,32 @@ public class Trie {
 		
 	}
 	
+	public static boolean  startWith(String prifx) {
+		
+		Node curr=rootNode;
+		
+		for(int i=0;i<prifx.length();i++) {
+			
+			int idx=prifx.charAt(i)-'a';
+			
+			if(curr.children[idx]==null) {
+				
+				return false;
+				
+				
+			}
+			curr=curr.children[idx];
+			
+			
+		}
+		return true;
+		
+		
+		
+		
+		
+	}
+	
 	
 	
 	
@@ -136,16 +162,24 @@ public class Trie {
     public static void main(String[] args) {
     
     	
-    String	words[]= {"the","a","there","their","any"};
+//    String	words[]= {"the","a","there","their","any"};
+    	 String	words[]= {"apple","app","mango","man","woman"};
     
     String key="thethereanya";
+    
+    String prifx="moon";
     
     for(int i=0;i<words.length;i++) {
     	
     	insert(words[i]);
     }
     
-    System.out.println(wordBreak(key));
+    
+    
+    System.out.println(startWith(prifx));
+    
+    
+//    System.out.println(wordBreak(key));
     
 //    System.out.println(search("the"));
 //    System.out.println(search("there"));
