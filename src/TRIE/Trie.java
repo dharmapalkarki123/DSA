@@ -152,6 +152,37 @@ public class Trie {
 	}
 	
 	
+	public static int countNode(Node rootNode) {
+		
+		
+		if(rootNode==null) {
+			
+			return 0;
+		}
+		
+		int count =0;
+		
+		for(int i=0;i<26;i++) {
+			
+			if(rootNode.children[i] !=null) {
+				
+				count+=countNode(rootNode.children[i]);
+				
+				
+			}
+			
+			
+			
+			
+			
+			
+		}
+		
+		
+		return count+1;
+		
+	}
+	
 	
 	
 	
@@ -166,17 +197,27 @@ public class Trie {
     	 String	words[]= {"apple","app","mango","man","woman"};
     
     String key="thethereanya";
-    
+    String key1="ababa";
     String prifx="moon";
     
-    for(int i=0;i<words.length;i++) {
+//    for(int i=0;i<words.length;i++) {
+//    	
+//    	insert(words[i]);
+//    }
+    
+  for(int i=0;i<key1.length();i++) {
     	
-    	insert(words[i]);
-    }
+	  String suffix=key1.substring(i);
+	  System.out.println(suffix);
+	  
+	  insert(suffix);
+    	
+    } 
+  
+  System.out.println(countNode(rootNode));
+  
     
-    
-    
-    System.out.println(startWith(prifx));
+//    System.out.println(startWith(prifx));
     
     
 //    System.out.println(wordBreak(key));
