@@ -183,6 +183,49 @@ public class Trie {
 		
 	}
 	
+	public static String ans="";
+	
+	
+	public static void longestWord(Node rootNode, StringBuilder temp) {
+		
+		if(rootNode==null) {
+			return;
+		}
+		
+
+		
+		for(int i=0;i<26;i++) {
+			
+			if(rootNode.children[i] !=null && rootNode.children[i].endOfWord==true) {
+				
+				temp.append((char)(i + 'a'));
+				
+				if(temp.length()>ans.length()) {
+					ans =temp.toString();
+					
+				}
+				longestWord(rootNode.children[i], temp);
+				
+				temp.deleteCharAt(temp.length()-1);
+				
+				
+			}
+			
+			
+			
+			
+			
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+	}
+	
 	
 	
 	
@@ -194,27 +237,40 @@ public class Trie {
     
     	
 //    String	words[]= {"the","a","there","their","any"};
-    	 String	words[]= {"apple","app","mango","man","woman"};
+    	// String	words[]= {"apple","app","mango","man","woman"};
+    	 String	words[]= {"a","banana","app","appl","ap","apply","apple"};
     
     String key="thethereanya";
     String key1="ababa";
     String prifx="moon";
+    
+
+    
+    for(int i=0;i<words.length;i++) {
+    	
+    	insert(words[i]);
+    }
+    
+    longestWord(rootNode, new StringBuilder(""));
+    
+    System.out.println(ans);
+    
     
 //    for(int i=0;i<words.length;i++) {
 //    	
 //    	insert(words[i]);
 //    }
     
-  for(int i=0;i<key1.length();i++) {
-    	
-	  String suffix=key1.substring(i);
-	  System.out.println(suffix);
-	  
-	  insert(suffix);
-    	
-    } 
-  
-  System.out.println(countNode(rootNode));
+//  for(int i=0;i<key1.length();i++) {
+//    	
+//	  String suffix=key1.substring(i);
+//	  System.out.println(suffix);
+//	  
+//	  insert(suffix);
+//    	
+//    } 
+//  
+//  System.out.println(countNode(rootNode));
   
     
 //    System.out.println(startWith(prifx));
