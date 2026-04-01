@@ -10,9 +10,9 @@ public class AdjencyList {
 		int src;
 		int dest;
 		
-		public Edge(int s,int d) {
-			this.src=s;
-			this.dest=d;
+		public Edge(int src,int dst) {
+			this.src=src;
+			this.dest=dst;
 			
 		}
 		
@@ -42,8 +42,8 @@ public class AdjencyList {
 		graph[2].add(new Edge(2, 1));
 		graph[2].add(new Edge(2, 3));
 		
-		graph[1].add(new Edge(3, 1));
-		graph[1].add(new Edge(3, 2));
+		graph[3].add(new Edge(3, 1));
+		graph[3].add(new Edge(3, 2));
 		
 	}
 	
@@ -57,9 +57,9 @@ public class AdjencyList {
 		createGraph(graph);
 		
 		
-		for(int i=0;i<graph[2].size();i++) {
+		for(int i=0;i<graph[3].size();i++) {
 			
-			Edge e=graph[2].get(i);
+			Edge e=graph[3].get(i);
 			
 			System.out.print(e.dest+ " ");
 			
