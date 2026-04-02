@@ -9,10 +9,12 @@ public class AdjencyList {
 		
 		int src;
 		int dest;
+		int weight;
 		
-		public Edge(int src,int dst) {
+		public Edge(int src,int dst,int w) {
 			this.src=src;
 			this.dest=dst;
+			this.weight=w;
 			
 		}
 		
@@ -33,17 +35,17 @@ public class AdjencyList {
 		}
 		
 		
-		graph[0].add(new Edge(0, 2));
+		graph[0].add(new Edge(0, 2,2));
 		
-		graph[1].add(new Edge(1, 2));
-		graph[1].add(new Edge(1, 2));
+		graph[1].add(new Edge(1, 2,10));
+		graph[1].add(new Edge(1, 2,0));
 		
-		graph[2].add(new Edge(2, 0));
-		graph[2].add(new Edge(2, 1));
-		graph[2].add(new Edge(2, 3));
+		graph[2].add(new Edge(2, 0,2));
+		graph[2].add(new Edge(2, 1,10));
+		graph[2].add(new Edge(2, 3,-1));
 		
-		graph[3].add(new Edge(3, 1));
-		graph[3].add(new Edge(3, 2));
+		graph[3].add(new Edge(3, 1,0));
+		graph[3].add(new Edge(3, 2,-1));
 		
 	}
 	
@@ -57,12 +59,11 @@ public class AdjencyList {
 		createGraph(graph);
 		
 		
-		for(int i=0;i<graph[3].size();i++) {
+		for(int i=0;i<graph.length;i++) {
 			
-			Edge e=graph[3].get(i);
-			
-			System.out.print(e.dest+ " ");
-			
+			 for (Edge e : graph[i]) {
+			        System.out.println(e.dest + ", " + e.weight);
+			    }
 		}
 		
 	}
