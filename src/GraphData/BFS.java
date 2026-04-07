@@ -63,7 +63,7 @@ public class BFS {
 		
 	
 	
-	
+	/*
 	public static void bfs(ArrayList<Edge> graph[],int V) {
 		
 		Queue<Integer> q=new LinkedList<>();
@@ -96,19 +96,63 @@ public class BFS {
 			
 		}
 		
+	
+	*/
+
+	
+	public static void bfs(ArrayList<Edge> graph[],int V,boolean vis[], int start) {
+		
+		Queue<Integer> q=new LinkedList<>();
 		
 		
+		
+		q.add(start);
+		
+		while(!q.isEmpty()) {
+			
+			int curr =q.remove();
+			
+			if(vis[curr]==false) {
+				
+				System.out.print(curr+" ");
+				vis[curr]=true;
+				
+				for(int i=0;i<graph[curr].size();i++) {
+					
+					Edge e=graph[curr].get(i);
+					
+					q.add(e.dest);
+					
+					
+				}
+				
+			}
+			
+			
+			
+		}
+		
+	
 	}
 	
-	
-
 	public static void main(String[] args) {
 		
 		int V=7;
 		
 		ArrayList<Edge> graph[]=new ArrayList[V];
 		createdGraph(graph);
-		bfs(graph, V);
+		
+		boolean vis[]=new boolean[V];
+		
+		for(int i=0;i<V;i++) {
+			
+			if(vis[i]==false) {
+				bfs(graph, V,vis,i);
+			}
+			
+		}
+		
+		//bfs(graph, V);
 		System.out.println();
 
 	}
