@@ -131,8 +131,38 @@ public class BFS {
 			
 			
 		}
+	
+		
+		
 		
 	
+	}
+	
+	
+	
+	public static void dfs(ArrayList<Edge> graph[],int curr,boolean vis[]) {
+		
+		System.out.print(curr+" ");
+		vis[curr]= true;
+		
+		for(int i=0;i<graph[curr].size();i++) {
+			
+			Edge e=graph[curr].get(i);
+			
+			if(vis[e.dest]==false)
+			
+			dfs(graph, e.dest, vis);
+			
+			
+			
+		}
+			
+			
+			
+			
+		
+		
+		
 	}
 	
 	public static void main(String[] args) {
@@ -144,15 +174,17 @@ public class BFS {
 		
 		boolean vis[]=new boolean[V];
 		
-		for(int i=0;i<V;i++) {
-			
-			if(vis[i]==false) {
-				bfs(graph, V,vis,i);
-			}
-			
-		}
+//		for(int i=0;i<V;i++) {
+//			
+//			if(vis[i]==false) {
+//				bfs(graph, V,vis,i);
+//			}
+//			
+//		}
 		
 		//bfs(graph, V);
+		
+		dfs(graph, 0, vis);
 		System.out.println();
 
 	}
