@@ -140,22 +140,7 @@ public class BFS {
 	
 	
 	
-	public static void dfs(ArrayList<Edge> graph[],int curr,boolean vis[]) {
-		
-		System.out.print(curr+" ");
-		vis[curr]= true;
-		
-		for(int i=0;i<graph[curr].size();i++) {
-			
-			Edge e=graph[curr].get(i);
-			
-			if(vis[e.dest]==false)
-			
-			dfs(graph, e.dest, vis);
-			
-			
-			
-		}
+	
 			
 			
 			
@@ -163,6 +148,33 @@ public class BFS {
 		
 		
 		
+	// Depth First Search (DFS) traversal for a graph
+	// graph[] -> adjacency list representation of graph
+	// curr -> current node we are visiting
+	// vis[] -> boolean array to keep track of visited nodes
+	public static void dfs(ArrayList<Edge> graph[], int curr, boolean vis[]) {
+	    
+	    // Step 1: Print the current node (this is where we "visit" the node)
+	    System.out.print(curr + " ");
+	    
+	    // Step 2: Mark current node as visited so we don't visit it again
+	    vis[curr] = true;
+	    
+	    // Step 3: Traverse all neighbors of current node
+	    // graph[curr] contains list of edges from current node
+	    for (int i = 0; i < graph[curr].size(); i++) {
+	        
+	        // Get the edge at index i
+	        Edge e = graph[curr].get(i);
+	        
+	        // Step 4: If the destination node is not visited yet
+	        if (vis[e.dest] == false) {
+	            
+	            // Recursively call DFS for that neighbor
+	            // This goes deep into the graph (core idea of DFS)
+	            dfs(graph, e.dest, vis);
+	        }
+	    }
 	}
 	
 	public static void main(String[] args) {
