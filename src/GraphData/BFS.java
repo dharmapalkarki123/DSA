@@ -194,9 +194,18 @@ public class BFS {
 //			
 //		}
 		
+		
+for(int i=0;i<V;i++) {
+			
+			if(vis[i]==false) {
+				dfs(graph, i,vis);
+			}
+			
+		}
+		
 		//bfs(graph, V);
 		
-		dfs(graph, 0, vis);
+//		dfs(graph, 0, vis);
 		System.out.println();
 
 	}
