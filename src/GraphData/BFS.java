@@ -177,6 +177,40 @@ public class BFS {
 	    }
 	}
 	
+	
+	public static void printAllpath(ArrayList<Edge> graph[],int curr,boolean vis[], String path,int tar) {
+		
+		int count=0;
+		if(curr==tar) {
+			System.out.println(path);
+			System.out.println(count);
+		}
+		
+		for(int i=0;i<graph[curr].size();i++) {
+			
+			Edge e=graph[curr].get(i);
+			if(!vis[e.dest]) {
+				vis[curr]=true;
+				printAllpath(graph, e.dest, vis, path+e.dest, tar);
+				vis[curr]=false;
+				
+				
+				
+			}
+			
+			count++;
+			
+			
+			
+			
+			
+		}
+		
+		
+		
+		
+	}
+	
 	public static void main(String[] args) {
 		
 		int V=7;
@@ -185,6 +219,9 @@ public class BFS {
 		createdGraph(graph);
 		
 		boolean vis[]=new boolean[V];
+		
+	
+		printAllpath(graph, 0, vis, "0", 5);
 		
 //		for(int i=0;i<V;i++) {
 //			
@@ -195,13 +232,13 @@ public class BFS {
 //		}
 		
 		
-for(int i=0;i<V;i++) {
-			
-			if(vis[i]==false) {
-				dfs(graph, i,vis);
-			}
-			
-		}
+//for(int i=0;i<V;i++) {
+//			
+//			if(vis[i]==false) {
+//				dfs(graph, i,vis);
+//			}
+//			
+//		}
 		
 		//bfs(graph, V);
 		
