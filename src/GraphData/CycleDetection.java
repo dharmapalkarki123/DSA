@@ -90,7 +90,24 @@ public class CycleDetection {
 		boolean vis[]=new boolean[V];
 		boolean rec[]=new boolean[V];
 		
-		System.out.println(isCycleDirected(graph, vis, 0, rec));
+		
+		for(int i=0;i<V;i++) {
+			
+			if(!vis[i]) {
+				
+				boolean isCycle= isCycleDirected(graph, vis, 0, rec);
+				if(isCycle) {
+					System.out.println(isCycle);
+					break;
+				}
+				
+				
+			}
+			
+			
+		}
+		
+//		System.out.println(isCycleDirected(graph, vis, 0, rec));
 	
 		
 
