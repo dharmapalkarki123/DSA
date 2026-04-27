@@ -77,7 +77,7 @@ public class DijkstraAlog {
 		
 		PriorityQueue<Pair> pq=new PriorityQueue<>();
 		int dist[]=new int[V];
-		
+		boolean vis[]=new boolean[V];
 		
 		for(int i=0;i<V;i++) {
 			
@@ -90,7 +90,7 @@ public class DijkstraAlog {
 			
 		}
 		
-		boolean vis[]=new boolean[V];
+		//boolean vis[]=new boolean[V];
 		pq.add(new Pair(0, 0));
 		
 		
