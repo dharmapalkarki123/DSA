@@ -36,9 +36,9 @@ public class clasroom2 {
         int count = 0;  // to count common elements
         
         // Step 1: Add all elements of arr1 into set
-//        for(int i = 0; i < arr1.length; i++) {
-//            set.add(arr1[i]);
-//        }
+        for(int i = 0; i < arr1.length; i++) {
+            set.add(arr1[i]);
+        }
         
         System.out.println(set);
         
