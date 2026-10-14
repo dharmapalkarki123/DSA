@@ -1,6 +1,7 @@
 package Array;
 
 import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicMarkableReference;
 
 public class BasicArray {
 
@@ -16,55 +17,85 @@ public class BasicArray {
 //		System.out.println(marks[2]);
 		
 		
-		Scanner sc =new Scanner(System.in);
-		System.out.println("Enter size of array");
+//		Scanner sc =new Scanner(System.in);
+//		System.out.println("Enter size of array");
+//		int size=sc.nextInt();
+//		int[] mark= new int[size];
+//		
+//		
+//		
+//		for(int i=0;i<size;i++) {
+//			
+//		
+//			
+//			 mark[i]=sc.nextInt();
+//			
+//		
+//			 
+//			
+//		}
+//		
+//		System.out.println("Enter x number");
+//		
+//		int n=sc.nextInt();
+//		
+//		
+//		
+//		for(int i=0;i<size;i++) {
+//			
+//			if(mark[i]==n) {
+//				System.out.println("Position of n is " +i);
+//			}
+//			
+//		}
+//		
+//		
+//		
+//		for(int i=0;i<size;i++) {
+//			
+//		
+//			
+//		
+//			
+//		System.out.println(mark[i]);
+//			
+//		
+//			 
+//			
+//		}
+		
+		
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the size of the array");
 		int size=sc.nextInt();
-		int[] mark= new int[size];
-		
-		
+	    
+		int[] marks=new int[size];
 		
 		for(int i=0;i<size;i++) {
 			
-		
-			
-			 mark[i]=sc.nextInt();
-			
-		
-			 
+			marks[i]=sc.nextInt();
 			
 		}
 		
 		System.out.println("Enter x number");
-		
 		int n=sc.nextInt();
-		
-		
 		
 		for(int i=0;i<size;i++) {
 			
-			if(mark[i]==n) {
+			if(marks[i]==n) {
 				System.out.println("Position of n is " +i);
 			}
 			
+			
+			
 		}
-		
-		
 		
 		for(int i=0;i<size;i++) {
 			
-		
+			System.out.println(marks[i]);
 			
-		
-			
-		System.out.println(mark[i]);
-			
-		
-			 
 			
 		}
-		
-		
-		
 		
 		
 		
