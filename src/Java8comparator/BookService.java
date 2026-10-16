@@ -12,7 +12,7 @@ public class BookService {
 		List<Book> books=new BookDAO().getBooks();
 		//using direct lamda function
 		Collections.sort(books,(o1,o2)->{
-			return o1.getName().compareTo(o1.getName());
+			return o1.getName().compareTo(o2.getName());
 		});
 		
 //		Collections.sort(books,new Comparator<Book>() {
