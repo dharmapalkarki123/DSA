@@ -48,6 +48,11 @@ public class Customer {
 	public void setPhoneNo(List<String> phoneNo) {
 		this.phoneNo = phoneNo;
 	}
+
+	@Override
+	public String toString() {
+		return "Customer [id=" + id + ", name=" + name + ", email=" + email + ", phoneNo=" + phoneNo + "]";
+	}
 	
 
 }
