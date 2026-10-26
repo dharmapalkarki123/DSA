@@ -46,6 +46,19 @@ public class MapReduceExample {
 		System.out.println(longestString);
 		
 		
+		double avgSalary = EmployeeMapDatabase.getAllEmployeeMap().stream()
+		        .filter(emp -> emp.getGrade() != null
+		                && emp.getGrade().equalsIgnoreCase("A"))
+		        .mapToDouble(emp -> emp.getSalary())
+		        .average()
+		        .orElse(0.0);
+
+		System.out.println("Average Salary: " + avgSalary);
+		
+	
+		
+		
+		
 		
 
 	}
