@@ -1,6 +1,9 @@
 package Java8;
 
+
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -22,6 +25,27 @@ public class EmployeeMapDatabase {
 			    new EmployeeMap(10, "Ramesh", "A", 65000))
 				
 				.collect(Collectors.toList());
+	}
+	
+	
+	public static List<EmployeeMap> getParelleEmployee(){
+		
+		List<EmployeeMap> employee=new ArrayList<EmployeeMap>();
+		
+		for(int i=1;i<1000;i++) {
+		
+			employee.add(new EmployeeMap(i, "employee"+i, "A", Double.valueOf(new Random().nextInt(1000*100))));
+			
+			
+			
+			
+		}
+		
+		
+		return employee;
+		
+		
+		
 	}
 	
 	
